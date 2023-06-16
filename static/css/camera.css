@@ -11,9 +11,6 @@
 **************************/
 
 .camera_wrap a,
-.camera_wrap a:hover {
-    background: url(images/blank.gif) !important;
-}
 
 .camera_wrap a,
 .camera_wrap a:hover,
@@ -143,12 +140,9 @@
     display: block;
     height: 100%;
     text-decoration: none;
-    background: url(images/blank.gif) !important;
 }
 
 .camera_loader {
-    background: #fff url(images/camera-loader.gif) no-repeat center;
-    background: rgba(255, 255, 255, 0.9) url(images/camera-loader.gif) no-repeat center;
     border: 1px solid #ffffff;
     -webkit-border-radius: 18px;
     -moz-border-radius: 18px;
