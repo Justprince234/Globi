@@ -24,8 +24,5 @@ urlpatterns = [
     path('globi_capital_investment/', include('stock.urls', namespace='stock')),
 ]
 
-if settings.DEBUG: 
-        urlpatterns += static(settings.MEDIA_URL, 
-                              document_root=settings.MEDIA_ROOT)
-        urlpatterns += static(settings.STATIC_URL, 
-                              document_root=settings.STATIC_ROOT) #Vercel configuration
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

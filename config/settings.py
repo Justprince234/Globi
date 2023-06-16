@@ -35,7 +35,7 @@ SECRET_KEY = 'dgw^9ej(l4vq%d_06xig$vw+b(-@#00@8l7jlv77=sq5r_sf3nu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] 
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh'] 
 
 
 # Application definition
@@ -156,16 +156,10 @@ DATABASES = {
 # Cloudinary configuration 
 
 cloudinary.config( 
-  cloud_name = "dpe4mvlct", 
-  api_key = "365273934666812", 
-  api_secret = "jj_kDMy-aUKGwLswjNuuxidg3WU" 
+  cloud_name = str(os.getenv("CLOUD_NAME")), 
+  api_key = str(os.getenv("API_KEY")), 
+  api_secret = str(os.getenv("API_SECRET")) 
 )
-
-# cloudinary.config( 
-#   cloud_name = str(os.getenv("CLOUD_NAME")), 
-#   api_key = str(os.getenv("API_KEY")), 
-#   api_secret = str(os.getenv("API_SECRET")) 
-# )
 
 
 
@@ -203,9 +197,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-)
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'photos/')
@@ -223,7 +215,3 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "account.backends.EmailAuthenticationBackend"
 )
-
-# Heroku settings.
-import django_heroku
-django_heroku.settings(locals())
