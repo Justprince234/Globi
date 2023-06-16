@@ -1,7 +1,5 @@
 @font-face {
     font-family: 'RSSocialFont';
-    src: url('../font/rssocial-font.eot?13037212');
-    src: url('../font/rssocial-font.eot?13037212#iefix') format('embedded-opentype'), url('../font/rssocial-font.woff?13037212') format('woff'), url('../font/rssocial-font.ttf?13037212') format('truetype'), url('../font/rssocial-font.svg?13037212#RSSocialFont') format('svg');
     font-weight: normal;
     font-style: normal;
 }
