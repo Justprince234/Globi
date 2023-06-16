@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Renevault Capital Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/dashboardstyle.css' %}">
+</head>
+<body>
+    <nav class="Container navbar navbar-expand-lg pb-2 pb-lg-0 navbar-light bg-white">
+        <img src="{% static 'images/logo.png' %}" width="10%">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse pb-0 justify-content-between" id="navbarSupportedContent">
+          <ul class="navbar-nav mt-3">
+            <li class="nav-item active">
+                <a class="nav-link text-dark Activity" href="{% url 'core:dashboard' %}">Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            {% for updated in updates %}
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#"></a>
+          </li>
+            {% empty %}
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="{% url 'core:profile' %}">Update Profile</a>
+            </li>
+            {% endfor %}
+                <li class="nav-item">
+                  <a class="nav-link text-muted" href="#"></a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link text-muted" href="#"></a>
+              </li>
+
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-scroll align-items-lg-center">
+              <a class="nav-link text-danger" href="{% url 'core:logout' %}" id="dropdownId" aria-expanded="false"> Logout</a>
+              
+              <li class="nav-item dropdown">
+                {% for update in updates %}
+                {% if update.passport %}
+                  <img src="{{ update.passport.url }}" class="rounded-circle px-3 py-2 text-white j_in_circle"> {% endif %} Hello, {{update.user.first_name}}
+                {% endfor %}
+            </li>
+            
+            <!-- <li class="nav-item pt-1 question-mark">
+                <a class="nav-link pt-0" href="#"><i class="fa fa-question-circle fa-2x text-info" aria-hidden="true"></i></a>
+            </li> -->
+            <!-- <li class="nav-item pt-1">
+              <a class="nav-link pt-0" href="profile.html">Profile</a>
+            </li> -->
+            <!-- <li class="nav-item pt-1">
+              <a class="nav-link pt-0" href="payment.html">Payment</a>
+            </li> -->
+            </ul>
+        </div>
+      </nav><hr>
+    
+      <section class="Container">
+        <div class="d-flex flex-wrap third-border">
+          
+          <div class="col-lg-6.5 first-border">
+              <h1 class="amount_in_dollars">${% for update in updates %}{{update.available_balance}}{% endfor %}</h1>
+              <p class="text_color pr-2">${% for update in updates %}{{update.available_balance}}{% endfor %} available balance - ${% for update in updates %}{{update.user.scheduled_balance}}{% endfor %} in scheduled activities - ${% for update in updates %}{{update.user.expenses_balance}}{% endfor %} in Expenses  <br> in Goal</p>
+          </div>
+    
+          <div class="col-lg-3.5 second-border px-1">
+              <h1>{% for update in updates %}{{update.user.account_number}}{% endfor %}</h1>
+              <p class="text_color text-info">Account Number</p>
+          </div>
+    
+          <div class="col-lg-2 pl-1">
+              <p class="text-danger">Account Status</p>   
+              <h3 class="text_color text-info">{% for update in updates %}{{update.user.status}}{% endfor %}</h3>
+          </div>
+        </div>
+        
+        <form class="d-flex justify-content-between flex-wrap pt-3">
+            <div class="d-flex flex-wrap col-lg-10 pl-0 pr-0">
+                <div class="col-lg-10 pl-0 pr-0 mt-3">
+                  <input type="text" class="form-control" name="search" placeholder="Search...">
+                </div>
+                <div class="col-lg-2 p-0 ml-0 mt-3">
+                  <input type="button" class="search_button form-control bg-light amount_in_dollars" value="Search">
+                </div>
+                 
+            </div>
+            <div class="col-lg-1.5 p-0 mt-3 input_button"><a href="{% url 'core:payment' %}" style="text-decoration:none;">
+              <input type="button" class=" form-control text-white bg_amount_in_dollars " id="move_money_button" value="Make Transfer">
+            </a>
+            </div>
+        </form>
+    
+        <h5 class="mb-0 mt-3 border-bottom-1">Transaction history</h5>
+        <br>
+        <table class="table table-responsive-sm font-weight-bold">
+          <thead>
+            <tr class="text-white">
+              <th class="Table_head_color">Date</th>
+              <th class="Table_head_color">Account Number</th>
+              <th class="Table_head_color">Amount</th>
+              <th class="Table_head_color"> Transaction Type</th>
+              <th class="Table_head_color">Transaction Reference</th>
+            </tr>
+          </thead>
+          
+          {% for history in histories %}
+          <tbody class="text-info">
+            <tr>
+              <td class="table-secondary">{{history.date }}</td>
+              <td class="table-secondary">{{history.account_number}}</td>
+              <td class="table-secondary">${{history.amount }}</td>
+              <td class="table-secondary">{{history.transaction_type}}</td>
+              <td class="table-secondary">{{history.transaction_reference }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    
+        </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>

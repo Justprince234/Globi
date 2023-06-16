@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globi Capital Investment - SignUp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/signups.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid cont">
+              <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li> -->
+                </ul>
+                <form class="d-flex" role="search">
+                  <a href="{% url 'stock:registration' %}">Sign Up</a>
+                  <a href="{% url 'stock:login' %}">Login</a>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </nav>
+    <section class="side">
+        <div class="left">
+            <img src="{% static 'img/exec-logo-2.png' %}" alt="logo">
+        </div>
+        <div class="right">
+            <div class="head">
+                <h2>Sign Up</h2>   
+            </div>
+            <form  method="post">
+                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Re-enter Password">
+                <input type="text" placeholder="Country">
+                <input type="number" placeholder="Phone Number">
+                <input type="text" placeholder="Referrer Username (Optional)">
+                <button>Sign Up</button>
+            </form>
+            <div class="foot">
+                <p>Already Registered? - <a href="{% url 'stock:login' %}">Sign In</a></p>
+                <p>Forgot Password? - <a href="#">Click to reset password</a></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+      <div class="footer-left">
+        <img src="{% static 'img/exec-logo-dark.png' %}" alt="">
+        <form method="post">
+          <input type="email" placeholder="Email Address">
+          <button>Join the Community</button>
+        </form>
+      </div>
+      <div class="footer-center">
+        <h5>Useful Links</h5>
+        <p>Home</p>
+        <p>About</p>
+        <p>Plans</p>
+        <p>FAQ</p>
+      </div>
+      <div class="footer-right">
+        <h5>Contact Us</h5>
+        <br>
+        <p> 9542 SW 40th Street, Miami, Florida, 33165 <br />
+          Email: info@globicapital.com</br>
+          Copyright 2022-2023 © Globi Capital Limited. All rights reserved.
+      </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

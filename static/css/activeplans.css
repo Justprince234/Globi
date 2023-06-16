@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    background-color: rgba(1, 7, 17, 0.95);
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.right-nav img{
+    width: 15rem;
+}
+.left-nav{
+    text-align: right;
+}
+.left-nav img{
+    width: 1.5rem;
+    display: inline-block;
+    margin-top: 1rem;
+}
+.main{
+    background-color: rgb(14,20,40);
+    height: 120vh;
+    padding: 3rem 3rem;
+    font-family: "Outfit", sans-serif;   
+}
+.active{
+    background-color: rgba(1, 7, 17, 0.95);
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    padding: 3rem 3rem;
+    border-radius: 6px;
+    border: 1.5px solid rgba(232, 111, 24, 0.7);
+}
+.sidebar{
+    width: 20%;
+    background-color: white;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+    margin-left: 80%;
+    display: none;
+}
+.sidebar{
+    padding: 1rem 2rem;
+    text-align: right;
+}
+.sidebar-buttons a{
+    background-color: #0e1428;
+    color: #faf9f9;
+    font-size: 0.8;
+    font-weight: 400;
+    padding: 10px 2rem;
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.sidebar-buttons a img{
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+.sidebar-buttons{
+    margin-top: 1rem;
+}
+
+
+
+@media(max-width:567px){
+    nav{
+        background-color: rgba(1, 7, 17, 0.95);
+        padding: 1rem 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .main{
+        background-color: rgb(14,20,40);
+        min-height: 100vh;
+        height: auto;
+        padding: 3rem 10px;
+        font-family: "Outfit", sans-serif;
+        
+    }
+    .sidebar{
+        width: 100%;
+        background-color: white;
+        height: auto;
+        position: absolute;
+        z-index: 1000;
+        margin-left: 0%;
+        display: none;
+    }
+    
+    
+}
+
+
+@media(min-width:568px) and (max-width:800px){
+    .main{
+        background-color: rgb(14,20,40);
+        height: 120vh;
+        padding: 3rem 1rem;
+        font-family: "Outfit", sans-serif;
+    }
+    .sidebar{
+        width: 40%;
+        background-color: white;
+        height: auto;
+        position: absolute;
+        z-index: 1000;
+        margin-left: 60%;
+        display: none;
+    }
+    
+    
+}
+
+
+
+
+@media(min-width:801px) and (max-width:1200px){
+    .main{
+        background-color: rgb(14,20,40);
+        height: 120vh;
+        padding: 3rem 1rem;
+        font-family: "Outfit", sans-serif;
+    }
+    .sidebar{
+        width: 30%;
+        background-color: white;
+        height: auto;
+        position: absolute;
+        z-index: 1000;
+        margin-left: 70%;
+        display: none;
+    }
+}

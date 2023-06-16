@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globi Capital Investment - Withdraw</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/withdraws.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profiles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="left-nav">
+            <img id="hide" src="{% static 'img/ham.png' %}" alt="">
+        </div>
+        <div class="sidebar-buttons">
+        <a href="{% url 'stock:dashboard' %}"><img src="{% static 'img/3d-cube.png' %}" alt=""> Dashboard</a>
+            <a href="{% url 'stock:wallet' %}"><img src="{% static 'img/wallet-filled-money-tool.png' %}" alt="" srcset=""> Fund Wallet</a>
+            <a href="{% url 'stock:plans' %}"><img src="{% static 'img/subscribe.png' %}" alt=""> Plans</a>
+            <a href="{% url 'stock:transactions' %}"><img src="{% static 'img/transaction.png' %}" alt=""> Transactions</a>
+            <a href="{% url 'stock:withdraw' %}"><img src="{% static 'img/withdrawal.png' %}" alt=""> Withdraw</a> 
+            <a href="{% url 'stock:logout' %}" style="background-color: #fd2626;"><img src="{% static 'img/logout.png' %}" alt="" > Logout</a>
+        </div>
+    </div>
+    <nav>
+        <div class="right-nav">
+            <a href="{% url 'stock:dashboard' %}"><img src="{% static 'img/exec-logo-dark.png' %}" alt=""></a>
+        </div>
+        <div class="left-nav">
+            <img id="show" src="{% static 'img/more.png' %}" alt="">
+        </div>
+    </nav>
+    <section class="main">
+        <div class="main-one">
+            <form action="{% url 'stock:withdraw' %}"  method="post">
+                {% csrf_token %}
+                <div class="main-one-form">
+                    <div>
+                        <h4>WITHDRAW</h4>
+                    </div>
+                    <div class="main-one-form-img">
+                        <img src="{% static 'img/profile-user.png' %}" alt="">
+                    </div>
+                </div>`
+                <div class="main-one-form-bottom">
+                    <input name="amount" type="number" placeholder="Amount">
+                    <input name="wallet_address" type="text" placeholder="Wallet address">
+                    <button type="submit">Withdraw</button>
+                </div>
+            </form>
+        </div>
+        
+    </section>
+    <script src="{% static 'Javascript/scripts.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
