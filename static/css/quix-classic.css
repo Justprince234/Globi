@@ -264,9 +264,6 @@
     right: auto
 }
 
-.slick-loading .slick-list {
-    background: url(../images/ajax-loader.gif) center center no-repeat #fff
-}
 
 .qx-element-slider .qx-sliders:hover .slick-prev,
 .qx-element-slider-pro .qx-sliders:hover .slick-prev {

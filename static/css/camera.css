@@ -230,7 +230,6 @@
 }
 
 .camera_prevThumbs div {
-    background: url(../images/camera_skins.png) no-repeat -160px 0;
     display: block;
     height: 40px;
     margin-top: -20px;
@@ -251,7 +250,6 @@
 }
 
 .camera_nextThumbs div {
-    background: url(../images/camera_skins.png) no-repeat -190px 0;
     display: block;
     height: 40px;
     margin-top: -20px;
@@ -361,7 +359,6 @@
 }
 
 .camera_prev>span {
-    background: url(../images/camera_skins.png) no-repeat 0 0;
     display: block;
     height: 40px;
     width: 40px;
@@ -372,7 +369,6 @@
 }
 
 .camera_next>span {
-    background: url(../images/camera_skins.png) no-repeat -40px 0;
     display: block;
     height: 40px;
     width: 40px;
@@ -383,13 +379,11 @@
 }
 
 .camera_commands>.camera_play {
-    background: url(../images/camera_skins.png) no-repeat -80px 0;
     height: 40px;
     width: 40px;
 }
 
 .camera_commands>.camera_stop {
-    background: url(../images/camera_skins.png) no-repeat -120px 0;
     display: block;
     height: 40px;
     width: 40px;
@@ -460,45 +454,6 @@
 *
 **************************/
 
-.pattern_1 .camera_overlayer {
-    background: url(../images/patterns/overlay1.png) repeat;
-}
-
-.pattern_2 .camera_overlayer {
-    background: url(../images/patterns/overlay2.png) repeat;
-}
-
-.pattern_3 .camera_overlayer {
-    background: url(../images/patterns/overlay3.png) repeat;
-}
-
-.pattern_4 .camera_overlayer {
-    background: url(../images/patterns/overlay4.png) repeat;
-}
-
-.pattern_5 .camera_overlayer {
-    background: url(../images/patterns/overlay5.png) repeat;
-}
-
-.pattern_6 .camera_overlayer {
-    background: url(../images/patterns/overlay6.png) repeat;
-}
-
-.pattern_7 .camera_overlayer {
-    background: url(../images/patterns/overlay7.png) repeat;
-}
-
-.pattern_8 .camera_overlayer {
-    background: url(../images/patterns/overlay8.png) repeat;
-}
-
-.pattern_9 .camera_overlayer {
-    background: url(../images/patterns/overlay9.png) repeat;
-}
-
-.pattern_10 .camera_overlayer {
-    background: url(../images/patterns/overlay10.png) repeat;
-}
 
 .camera_caption {
     color: #fff;
