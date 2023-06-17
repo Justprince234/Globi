@@ -6,7 +6,9 @@ echo "Done..."
 
 echo "Installing the latest version of pip..."
 python3.9 -m pip install --upgrade pip 
-python3.9 -m pip install Django
+python3.9 -m pip install Django 
+python3.9 -m pip install cloudinary
+
 
 echo "Upgrade Complete..."
 
@@ -17,5 +19,5 @@ echo "Build Complete..."
 
 # Collect static files
 echo "Collecting static files..."
-python3.9 manage.py collectstatic --noinput --clear
+python3.9 manage.py collectstatic
 echo "Ready..."
