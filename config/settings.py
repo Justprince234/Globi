@@ -146,12 +146,12 @@ DATABASES = {
   }
 }
 
-# DEFAULT_FROM_EMAIL = str(os.getenv("DEFAULT_FROM_EMAIL"))
-# EMAIL_HOST = str(os.getenv("EMAIL_HOST"))
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
-# EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
+DEFAULT_FROM_EMAIL = str(os.getenv("DEFAULT_FROM_EMAIL"))
+EMAIL_HOST = str(os.getenv("EMAIL_HOST"))
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
+EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
 
 # Cloudinary configuration 
 
@@ -196,11 +196,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static/'),
+# )
+STATIC_ROOT = os.path.join(
+    BASE_DIR, 'staticfiles', 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-)
+STATICFILES_DIRS = [os.path.join(
+    BASE_DIR, 'static',),]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'photos/')
 MEDIA_URL = '/photos/'
