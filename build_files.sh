@@ -5,7 +5,6 @@ source venv/bin/activate
 echo "Done..."
 
 echo "Installing the latest version of pip..."
-python3.9 -m pip install --upgrade pip 
 python3.9 -m pip install Django 
 python3.9 -m pip install cloudinary
 
