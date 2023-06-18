@@ -7,7 +7,10 @@ echo "Done..."
 echo "Installing the latest version of pip..."
 python3.9 -m pip install Django 
 python3.9 -m pip install cloudinary 
-python3.9 -m pip install postgresql
+python3.9 -m pip uninstall psycopg2 psycopg2-binary
+
+python3.9 -m pip install psycopg2 psycopg2-binary
+
 
 
 echo "Upgrade Complete..."
