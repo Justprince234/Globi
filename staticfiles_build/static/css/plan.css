@@ -1,0 +1,322 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    background-color: rgba(1, 7, 17, 0.95);
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.right-nav img{
+    width: 15rem;
+}
+.left-nav{
+    text-align: right;
+}
+.left-nav img{
+    width: 1.5rem;
+    display: inline-block;
+    margin-top: 1rem;
+}
+.main{
+    background-color: rgb(14,20,40);
+    height: 120vh;
+    padding: 3rem 3rem;
+    font-family: "Outfit", sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+}
+.main-one{
+    background-color: #e0d9d9;
+    border-radius: 1px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    padding: 3rem 2.5rem 2rem 2.5rem;
+    margin: 1rem 1rem;
+    flex: 0 1 27%;
+    border: 2.5px solid transparent;
+    transition: all 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+.main-one .span-one{
+    color: rgb(14, 20, 40);
+    background-color: rgb(248, 118, 62);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-one p{
+    color: rgb(51, 51, 51);
+    font-size: 1rem;
+    font-weight: 300;
+}
+.main-one h5{
+    color: rgb(1, 2, 10);
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin-bottom: 0.1rem;
+}
+
+.sidebar{
+    width: 20%;
+    background-color: white;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+    margin-left: 80%;
+    display: none;
+}
+.sidebar{
+    padding: 1rem 2rem;
+    text-align: right;
+}
+.sidebar-buttons a{
+    background-color: #0e1428;
+    color: #faf9f9;
+    font-size: 0.8;
+    font-weight: 400;
+    padding: 10px 2rem;
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.sidebar-buttons a img{
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+.sidebar-buttons{
+    margin-top: 1rem;
+}
+
+
+
+@media(max-width:567px){
+    nav{
+        background-color: rgba(1, 7, 17, 0.95);
+        padding: 1rem 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .main{
+        background-color: rgb(14,20,40);
+        min-height: 100vh;
+        height: auto;
+        padding: 3rem 10px;
+        font-family: "Outfit", sans-serif;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+    .main-one{
+    background-color: #e0d9d9;
+    border-radius: 1px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    padding: 3rem 2rem 2rem 2rem;
+    margin: 0rem 0rem;
+    flex: 0 1 27%;
+    border: 2.5px solid transparent;
+    transition: all 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+    .main-one .span-one{
+    color: rgb(14, 20, 40);
+    background-color: rgb(250, 249, 249);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar{
+    width: 100%;
+    background-color: white;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+    margin-left: 0%;
+    display: none;
+}
+    
+}
+
+
+@media(min-width:568px) and (max-width:800px){
+    .main{
+        background-color: rgb(14,20,40);
+        height: 120vh;
+        padding: 5rem 1rem;
+        font-family: "Outfit", sans-serif;
+    }
+    .main{
+        background-color: rgb(14,20,40);
+        min-height: 100vh;
+        height: auto;
+        padding: 3rem 10px;
+        font-family: "Outfit", sans-serif;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+    .main-one{
+    background-color: #e0d9d9;
+    border-radius: 1px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    padding: 3rem 2rem 2rem 2rem;
+    margin: 0rem 0rem;
+    flex: 0 1 27%;
+    border: 2.5px solid transparent;
+    transition: all 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+    .main-one .span-one{
+    color: rgb(14, 20, 40);
+    background-color: rgb(250, 249, 249);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+   .span-two{
+    color: rgb(14, 20, 40);
+    background-color: rgb(248, 118, 62);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+} 
+.span-three{
+    color: rgb(204, 204, 204);
+    background-color: rgb(2, 0, 32);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sidebar{
+    width: 40%;
+    background-color: white;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+    margin-left: 60%;
+    display: none;
+}
+    
+    
+}
+
+
+
+
+@media(min-width:801px) and (max-width:1200px){
+    .main{
+        background-color: rgb(14,20,40);
+        height: 120vh;
+        padding: 5rem 1rem;
+        font-family: "Outfit", sans-serif;
+    }
+    .main{
+        background-color: rgb(14,20,40);
+        min-height: 100vh;
+        height: auto;
+        padding: 3rem 10px;
+        font-family: "Outfit", sans-serif;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+    .main-one{
+    background-color: #e0d9d9;
+    border-radius: 1px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+    padding: 3rem 2rem 2rem 2rem;
+    margin: 0rem 0rem;
+    flex: 0 1 27%;
+    border: 2.5px solid transparent;
+    transition: all 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+    .main-one .span-one{
+    color: rgb(14, 20, 40);
+    background-color: rgb(250, 249, 249);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+   .span-two{
+    color: rgb(14, 20, 40);
+    background-color: rgb(248, 118, 62);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+} 
+.span-three{
+    color: rgb(204, 204, 204);
+    background-color: rgb(2, 0, 32);
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 3px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sidebar{
+    width: 30%;
+    background-color: white;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+    margin-left: 70%;
+    display: none;
+}
+    
+}
