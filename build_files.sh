@@ -7,8 +7,8 @@ echo "Done..."
 echo "Installing the latest version of pip..."
 python3.9 -m pip install Django 
 python3.9 -m pip install cloudinary
+python3.9 -m pip install --no-binary :all: psycopg2
 python3.9 -m pip install psycopg2-binary
-python3.9 -m pip install psycopg2
 
 echo "Upgrade Complete..."
 
