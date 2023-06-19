@@ -5,15 +5,16 @@ source venv/bin/activate
 echo "Done..."
 
 echo "Installing the latest version of pip..."
-python3.9 -m pip install --upgrade pip
+python -m pip install --upgrade pip
 
 echo "Upgrade Complete..."
 
 # Build the project
 echo "Building the project..."
-python3.9 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 echo "Build Complete..."
 
 # Collect static files
 echo "Collecting static files..."
+python manage.py collectstatic --noinput --clear
 echo "Ready..."
