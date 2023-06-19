@@ -8,7 +8,7 @@ cloudinary==1.29.0
 commonmark==0.9.1
 dictdiffer==0.9.0
 dj-database-url==2.0.0
-Django==4.1.2
+Django==3.2.19
 django-cloudinary-storage==0.3.0
 django-smtp-ssl==1.0
 django-sslserver==0.22
