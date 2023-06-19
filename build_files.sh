@@ -6,8 +6,6 @@ echo "Done..."
 
 echo "Installing the latest version of pip..."
 python -m pip install --upgrade pip
-sudo apt-get install pkg-config 
-sudo apt-get install libcairo2-dev
 
 echo "Upgrade Complete..."
 
