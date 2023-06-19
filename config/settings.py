@@ -136,16 +136,16 @@ EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 # To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
 
 
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': str(os.getenv("NAME")),
-    'USER': str(os.getenv("USER")),
-    'PASSWORD': str(os.getenv("PASSWORD")),
-    'HOST': str(os.getenv("HOST")),
-    'PORT': str(os.getenv("PORT")),
-  }
-}
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': str(os.getenv("NAME")),
+#     'USER': str(os.getenv("USER")),
+#     'PASSWORD': str(os.getenv("PASSWORD")),
+#     'HOST': str(os.getenv("HOST")),
+#     'PORT': str(os.getenv("PORT")),
+#   }
+# }
 
 DEFAULT_FROM_EMAIL = str(os.getenv("DEFAULT_FROM_EMAIL"))
 EMAIL_HOST = str(os.getenv("EMAIL_HOST"))
