@@ -142,11 +142,11 @@
             </div>
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              <span>Business Chk</span>
+              ${% for update in updates %}{{update.new_balance}}{% endfor %}
             </div>
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              ${% for update in updates %}{{update.new_balance}}{% endfor %}
+              <span>Business Chk</span>
             </div>
             <div class="col-3">
 
@@ -154,7 +154,7 @@
           </div>
 
           <div class="row text-white mt-5">
-            <h6 class="col-5 py-1" style="background-color: rgba(112, 102, 91, 0.979);">Current Balance</h6>
+            <h6 class="col-5 py-1" style="background-color: rgba(112, 102, 91, 0.979);">Available Balance</h6>
           </div>
 
           <div class="row">
