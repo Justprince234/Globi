@@ -12,18 +12,22 @@ TRANSACTION_TYPE = (
 
 class History(models.Model):
     user =  models.ForeignKey(User, related_name='history', on_delete=models.CASCADE) 
-    sender_name = models.CharField(max_length=100, default="")
     account_number = models.CharField(max_length=100)
     description = models.CharField(max_length=100, default="")
     receiver_name = models.CharField(max_length=100, default="")
     receiver_bank = models.CharField(max_length=100, default="")
     transaction_type = models.CharField(choices=TRANSACTION_TYPE, default="Debit", max_length=10)
-    amount = models.IntegerField()
+    amount = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     transaction_reference = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
     date = models.DateField()
 
     class Meta:
         verbose_name_plural = "Histories"
+
+    def new_balance(self):
+        balance = self.amount
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
 
 class Contact(models.Model):
     full_name = models.CharField(max_length=100)

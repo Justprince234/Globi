@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>Dashboard - Globi Capital Bank</title>
+  <title>Dashboard - Global Capital Bank</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +19,7 @@
 
 <body>
   <header>
-    <h5 class="text-center">Welcome to Globi Capital Bank - Online Banking Service | Secured Online System</h5>
+    <h5 class="text-center">Welcome to Global Capital Bank - Online Banking Service | Secured Online System</h5>
   </header>
   <main>
     <marquee class="bg-primary text-white" behavior="" direction="right"></marquee>
@@ -30,7 +30,7 @@
             <div class="d-flex d-md-block justify-content-between mt-2">
               <!-- <img class="logo" src="{% static 'images/logo.png' %}" alt=""> -->
               <div class="row d-md-block mt-3 mx-0">
-                <a href="{% url 'core:dashboard' %}"><p style="margin-left: 20px; color: rgb(35, 65, 35); font-size: larger; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;">Globi Capital Bank</p></a>
+                <a href="{% url 'core:dashboard' %}"><p style="margin-left: 20px; color: rgb(35, 65, 35); font-size: larger; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;">Global Capital Bank</p></a>
               </div>
               {% for update in updates %}
                 {% if update.passport %}
@@ -46,7 +46,7 @@
                 
               </div>
               <div class="col-4 col-md-12 p-2 ">
-                <a href="{% url 'core:payment' %}"><button class="transaction-btns font-weight-bold w-100 d-block bg-bg-dark border-0 rounded text-white m-2 text-center p-1">Money Transfer</button></a>
+                <a href="{% url 'core:payment' %}"><button class="transaction-btns font-weight-bold w-100 d-block bg-dark border-0 rounded text-white m-2 text-center p-1">Money Transfer</button></a>
               </div>
               <div class="col-4 col-md-12 p-2 ">
                 <a href="{% url 'core:history' %}"><button
@@ -146,7 +146,7 @@
             </div>
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              ${% for update in updates %}{{update.available_balance}}{% endfor %}
+              ${% for update in updates %}{{update.new_balance}}{% endfor %}
             </div>
             <div class="col-3">
 
@@ -160,7 +160,7 @@
           <div class="row">
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              <span>${% for update in updates %}{{update.available_balance}}{% endfor %}</span>
+              <span>${% for update in updates %}{{update.new_balance}}{% endfor %}</span>
             </div>
           </div>
 

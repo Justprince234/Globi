@@ -117,3 +117,8 @@ class UpdateUser(models.Model):
   
     def __str__(self):
         return "{}".format(self.user)
+    
+    def new_balance(self):
+        balance = self.available_balance
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
