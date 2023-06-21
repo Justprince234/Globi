@@ -29,10 +29,9 @@
           <div class="">
             <div class="d-flex d-md-block justify-content-between mt-2">
               <!-- <img class="logo" src="{% static 'images/logo.png' %}" alt=""> -->
-              <div class="row d-md-block mt-4 mx-0">
-                <a href="{% url 'core:dashboard' %}"><p style="margin-left: 20px; color: rgb(35, 65, 35); font-size: larger;">Globi Capital Bank</p></a>
+              <div class="row d-md-block mt-3 mx-0">
+                <a href="{% url 'core:dashboard' %}"><p style="margin-left: 20px; color: rgb(35, 65, 35); font-size: larger; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;">Globi Capital Bank</p></a>
               </div>
-              
               {% for update in updates %}
                 {% if update.passport %}
               <img class="transaction-images w-25 mb-2 d-block d-md-none float-end" src="{{ update.passport.url }}" alt="">
@@ -41,35 +40,32 @@
             </div>
             <div class="row d-md-block mt-4 mx-0">
               <div class="col-4 col-md-12 p-2 ">
-                <a href="{% url 'core:payment' %}"><button class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1">Money Transfer </button></a>
-              </div>
-              
-              <div class="col-4 col-md-12 p-2 ">
                 
-                  <a href="{% url 'core:dashboard' %}"><button class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center  p-1">My
+                  <a href="{% url 'core:dashboard' %}"><button class="transaction-btns font-weight-bold w-100 d-block bg-primary border-0 rounded text-white m-2 text-center  p-1">My
                       Account </button></a>
                 
               </div>
-
               <div class="col-4 col-md-12 p-2 ">
-                <a href="{% url 'core:history' %}"> <button
-                    class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1">Transaction
-                    History </button></a>
+                <a href="{% url 'core:payment' %}"><button class="transaction-btns font-weight-bold w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1">Money Transfer</button></a>
+              </div>
+              <div class="col-4 col-md-12 p-2 ">
+                <a href="{% url 'core:history' %}"><button
+                    class="transaction-btns w-100 d-block bg-primary font-weight-bold border-0 rounded text-white m-2 text-center p-1">Transaction
+                    History</button></a>
               </div>
 
               <div class="col-4 col-md-12 p-2 ">
-              {% for updated in updates %}
-              <!-- Button trigger modal -->
-              <a class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1" href="{% url 'core:updated_profile' %}">Profile Updated</a>
-              {% empty %}
-              <a class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1" href="{% url 'core:profile' %}">Update Profile</a>
-              {% endfor %}
+                {% for updated in updates %}
+                <!-- Button trigger modal -->
+                <a class="transaction-btns w-100 d-block bg-primary font-weight-bold border-0 rounded text-white m-2 text-center p-1" href="{% url 'core:updated_profile' %}">Profile Updated</a>
+                {% empty %}
+                <a class="transaction-btns w-100 d-block bg-primary font-weight-bold border-0 rounded text-white m-2 text-center p-1" href="{% url 'core:profile' %}">Update Profile</a>
+                {% endfor %}
               </div>
 
               <div class="col-4 col-md-12 p-2 ">
                 <!-- Button trigger modal -->
-                <a class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1" href="{% url 'core:logout' %}" id="dropdownId" aria-expanded="false"> Logout</a>
-
+                <a class="transaction-btns w-100 d-block bg-dark font-weight-bold border-0 rounded text-white m-2 text-center p-1" href="{% url 'core:logout' %}" id="dropdownId" aria-expanded="false"> Logout</a>
               </div>
 
             </div>
@@ -100,14 +96,14 @@
           <table class="table table-responsive-sm  table-sm ">
             <thead>
               <tr class="text-white " style="background-color: rgba(112, 102, 91, 0.979);">
-                <th class="">Date</th>
-                <th class="">Amount</th>
-                <th class="">Purpose</th>
-                <th class="">Type</th>
-                <th class="">Full Name</th>
-                <th class="">Bankname</th>
-                <th class="">Account Number</th>
-                <th class="">Reference Number</th>
+                <th style="font-weight: bold;" class="">DATE</th>
+                <th style="font-weight: bold;" class="">AMOUNT</th>
+                <th style="font-weight: bold;" class="">PURPOSE</th>
+                <th style="font-weight: bold;" class="">TYPE</th>
+                <th style="font-weight: bold;" class="">FULL NAME</th>
+                <th style="font-weight: bold;" class="">BANK NAME</th>
+                <th style="font-weight: bold;" class="">ACCOUNT NUMBER</th>
+                <th style="font-weight: bold;" class="">REFERENCE NUMBER</th>
               </tr>
             </thead>
           
