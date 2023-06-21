@@ -4,6 +4,10 @@ from django.core.validators import MinLengthValidator
 
 import uuid
 
+STATUS = (
+    ('Savings', 'Savings'),
+    ('Checking', 'Checking')
+)
 
 # Create your models here.
 class InternationalTransfer(models.Model):
@@ -12,6 +16,7 @@ class InternationalTransfer(models.Model):
     bank_name = models.CharField(max_length=100)
     bank_country = models.CharField(max_length=100)
     to_account = models.CharField(max_length=150)
+    account_type = models.CharField(choices=STATUS, default="Savings", max_length=20)
     routing_number = models.CharField(max_length=100)
     iban_number = models.CharField(max_length=100)
     transfer_amount = models.DecimalField(default=0, max_digits=12, decimal_places=2)
@@ -33,6 +38,7 @@ class LocalTransfer(models.Model):
     to_fullname = models.CharField(max_length=200)
     bank_name = models.CharField(max_length=100)
     to_account = models.CharField(max_length=150)
+    account_type = models.CharField(choices=STATUS, default="Savings", max_length=20)
     transfer_amount = models.DecimalField(default=0, max_digits=12, decimal_places=2)
     transaction_pin = models.IntegerField(validators=[MinLengthValidator(4)])
     transfer_description = models.CharField(max_length=100, null=True, blank=True)

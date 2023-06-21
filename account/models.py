@@ -38,15 +38,12 @@ STATUS = (
 # Create your models here.
 class UserManager(BaseUserManager):
     
-    def _create_user(self,username, email, password, is_staff, is_superuser, **extra_fields):
-        if not username:
-            raise ValueError("Username must be set")
+    def _create_user(self, email, password, is_staff, is_superuser, **extra_fields):
         if not email:
             raise ValueError('Users must have an email address')
         now = timezone.now()
         email = self.normalize_email(email)
         user = self.model(
-            username=username,
             email=email,
             is_staff=is_staff,
             is_superuser=is_superuser,
@@ -58,11 +55,11 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, username=None, email=None, password=None, **extra_fields):
-        return self._create_user(username, email, password, False, False, **extra_fields)
+    def create_user(self, email=None, password=None, **extra_fields):
+        return self._create_user(email, password, False, False, **extra_fields)
 
-    def create_superuser(self, username, email, password, **extra_fields):
-        user = self._create_user(username, email, password, True, True, **extra_fields) 
+    def create_superuser(self, email, password, **extra_fields):
+        user = self._create_user(email, password, True, True, **extra_fields)
         user.save(using=self._db)
         return user
 
@@ -76,7 +73,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    username = models.CharField(max_length=150, validators=[UnicodeUsernameValidator, ],unique=True)
     email = models.EmailField(max_length=150, unique=True)
     date_of_birth = models.DateField(default=return_date_time)
     gender = models.CharField(choices=SEX,default="G", max_length=10)
@@ -96,12 +92,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     objects = UserManager()
 
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["email", ]
+    USERNAME_FIELD = 'email'
+    EMAIL_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
 
     def get_absolute_url(self):
         return "/users/%i/" % (self.pk)
-
     def get_email(self):
         return self.email
 

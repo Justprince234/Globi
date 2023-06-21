@@ -30,7 +30,6 @@ def registration(request):
         first_name = request.POST['first_name']
         middle_name = request.POST['middle_name']
         surname = request.POST['surname']
-        username = request.POST['username']
         email = request.POST['email']
         date_of_birth = request.POST['date_of_birth']
         phone = request.POST['phone']
@@ -43,10 +42,7 @@ def registration(request):
         if User.objects.filter(email=email).exists():
             messages.info(request, 'email already exist.')
             return redirect('core:registration')
-        elif User.objects.filter(username=username).exists():
-            messages.info(request, 'user already exist.')
-            return redirect('core:registration')  
-        user = User.objects.create_user(first_name=first_name, middle_name=middle_name, surname=surname, username=username,date_of_birth=date_of_birth, email=email, phone=phone, address=address, gender=gender, security_question=security_question, security_answer=security_answer, password=password)
+        user = User.objects.create_user(first_name=first_name, middle_name=middle_name, surname=surname, date_of_birth=date_of_birth, email=email, phone=phone, address=address, gender=gender, security_question=security_question, security_answer=security_answer, password=password)
         user.is_active = False  
         user.save()
         current_site = get_current_site(request)
@@ -56,9 +52,9 @@ def registration(request):
             'uid': urlsafe_base64_encode(force_bytes(user.pk)),
             'token': account_activation_token.make_token(user),
         })
-        mail_subject = 'Renevault Capital E-mail verification'
+        mail_subject = 'Globi Capital E-mail verification'
         recipient_list = user.email
-        from_email = 'info@renevaultcapital.com'
+        from_email = 'info@globicapital.com'
         send_mail(mail_subject, str(message), from_email, [str(recipient_list)], fail_silently=False)
         messages.success(request, f'Dear {user.first_name}, please check your email "{user.email}" inbox and click on \
             received activation link to confirm and complete the registration. Note: Check your spam folder.')  
@@ -69,9 +65,9 @@ def login(request):
     """Displays the account login page."""
     template_name = 'account-login.html'
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)
             return redirect('core:dashboard')
@@ -142,6 +138,7 @@ def international(request):
             bank_name = request.POST['bank_name']
             bank_country = request.POST['bank_country']
             to_account = request.POST['to_account']
+            account_type = request.POST['account_type']
             routing_number = request.POST['routing_number']
             iban_number = request.POST['iban_number']
             transfer_amount = request.POST['transfer_amount']
@@ -152,7 +149,7 @@ def international(request):
                 if int(current_pin) == int(transaction_pin):
                     available_balance -= int(transfer_amount)
                     update_user.update(available_balance=available_balance)
-                    international = InternationalTransfer(to_fullname=to_fullname, bank_name=bank_name, bank_country=bank_country, to_account=to_account, routing_number=routing_number, iban_number=iban_number, transfer_amount=transfer_amount, currency_type=currency_type, transfer_description=transfer_description, transaction_pin=transaction_pin)
+                    international = InternationalTransfer(to_fullname=to_fullname, bank_name=bank_name, bank_country=bank_country, to_account=to_account, account_type=account_type, routing_number=routing_number, iban_number=iban_number, transfer_amount=transfer_amount, currency_type=currency_type, transfer_description=transfer_description, transaction_pin=transaction_pin)
                     international.owner = request.user
                     international.save()
                     messages.success(request, 'Sent!')
@@ -180,6 +177,7 @@ def local(request):
             to_fullname= request.POST['to_fullname']
             bank_name = request.POST['bank_name']
             to_account = request.POST['to_account']
+            account_type = request.POST['account_type']
             transfer_amount = request.POST['transfer_amount']
             transfer_description = request.POST['transfer_description']
             transaction_pin = request.POST['transaction_pin']
@@ -187,7 +185,7 @@ def local(request):
                 if int(current_pin) == int(transaction_pin):
                     available_balance -= int(transfer_amount)
                     update_user.update(available_balance=available_balance)
-                    local = LocalTransfer(to_fullname=to_fullname, bank_name=bank_name, to_account=to_account, transfer_amount=transfer_amount, transfer_description=transfer_description, transaction_pin=transaction_pin)
+                    local = LocalTransfer(to_fullname=to_fullname, bank_name=bank_name, to_account=to_account, account_type=account_type, transfer_amount=transfer_amount, transfer_description=transfer_description, transaction_pin=transaction_pin)
                     local.owner = request.user
                     local.save()
                     messages.success(request, 'Sent!')

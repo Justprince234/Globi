@@ -79,7 +79,7 @@
                 </div>
                 <div class="span4">
                     <div id="motto">
-                        <h1 class="center">GLOBI<br /> CAPITAL BANK <br><br></h1>
+                        <h1 class="center">BANKING REGISTRATION ACCOUNT <br><br></h1>
                     </div>
                 </div>
 
@@ -92,11 +92,11 @@
     </div>
     <center>
         {% for message in messages %}
-        <p style="color: red">{{message}}</p>
+        <p style="color: blue">{{message}}</p>
         {% endfor %}
     </center>
     <div id="content" style="min-height:600px;">
-        <h1>New Account Online Opening Form</h1>
+        <h1>ACCOUNT REGISTRATION</h1>
         <form action="{% url 'core:registration' %}" id="app-form" method="POST">
             {% csrf_token %}
             <p>Thank you for your interest in a Globi Capital Bank account. This online form will guide you through
@@ -139,15 +139,6 @@
                     <div class="controls">
                         <input type="text" class="span12" id="relationship_contact_details"
                             name="address">
-                        <span class="help-block"></span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" for="relationship_contact_details">Username :</label>
-                    <div class="controls">
-                        <input type="text" class="span12" id="relationship_contact_details"
-                            name="username">
                         <span class="help-block"></span>
                     </div>
                 </div>

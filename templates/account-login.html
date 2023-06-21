@@ -79,7 +79,7 @@
                 </div>
                 <div class="span4">
                     <div id="motto">
-                        <h1 class="center">THE GLOBI<br /> CAPITAL BANK <br><br></h1>
+                        <h1 class="center">BANKING LOGIN ACCOUNT <br><br></h1>
                     </div>
                 </div>
 
@@ -91,10 +91,10 @@
         </div>
     </div>
     {% for message in messages %}
-        <p style="color: red">{{message}}</p>
+        <p style="color: blue">{{message}}</p>
     {% endfor %}
     <div id="content" style="min-height:600px;">
-        <h1>Online Account Login Form</h1>
+        <h1>ACCOUNT LOGIN</h1>
         <form action="{% url 'core:login' %}" id="app-form" method="POST">
             {% csrf_token %}
             
@@ -102,10 +102,10 @@
             <div id="on_behalf">
 
                 <div class="control-group">
-                    <label class="control-label" for="relationship_contact_details">Username :</label>
+                    <label class="control-label" for="relationship_contact_details">E-mail :</label>
                     <div class="controls">
-                        <input type="text" class="span12" id="relationship_contact_details"
-                            name="username">
+                        <input type="email" class="span12" id="relationship_contact_details"
+                            name="email">
                         <span class="help-block"></span>
                     </div>
                 </div>

@@ -19,16 +19,20 @@
 
 <body>
   <header>
-    <h5 class="text-center">Welcome to Globi Capital Bank - Online Banking Service | Secured Online System</h5>
+    <h5 style="margin-bottom: 2px;" class="text-center">Welcome to Globi Capital Bank - Online Banking Service | Secured Online System</h5>
   </header>
   <main>
-    <marquee class="bg-primary text-white" behavior="" direction="right"><span id='date-time'></span></marquee>
+    <marquee class="bg-primary text-white" behavior="" direction="right"></marquee>
     <section class="row mx-0">
       <div class="col-12 col-md-2">
         <div class="row pr-2">
           <div class="">
             <div class="d-flex d-md-block justify-content-between mt-2">
-              <img class="logo" src="{% static 'images/logo.png' %}" alt="">
+              <!-- <img class="logo" src="{% static 'images/logo.png' %}" alt=""> -->
+              <div class="row d-md-block mt-4 mx-0">
+                <a href="{% url 'core:dashboard' %}"><p style="margin-left: 20px; color: rgb(35, 65, 35); font-size: larger;">Globi Capital Bank</p></a>
+              </div>
+              
               {% for update in updates %}
                 {% if update.passport %}
               <img class="transaction-images w-25 mb-2 d-block d-md-none float-end" src="{{ update.passport.url }}" alt="">
@@ -37,14 +41,16 @@
             </div>
             <div class="row d-md-block mt-4 mx-0">
               <div class="col-4 col-md-12 p-2 ">
+                <a href="{% url 'core:payment' %}"><button class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1">Money Transfer </button></a>
+              </div>
+              
+              <div class="col-4 col-md-12 p-2 ">
                 
                   <a href="{% url 'core:dashboard' %}"><button class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center  p-1">My
                       Account </button></a>
                 
               </div>
-              <div class="col-4 col-md-12 p-2 ">
-                <a href="{% url 'core:payment' %}"><button class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1">Money Transfer </button></a>
-              </div>
+
               <div class="col-4 col-md-12 p-2 ">
                 <a href="{% url 'core:history' %}"> <button
                     class="transaction-btns w-100 d-block bg-primary border-0 rounded text-white m-2 text-center p-1">Transaction
@@ -69,7 +75,7 @@
             </div>
 
             <div class="mt-3 d-none d-md-block" style="width: 90%; margin: auto;">
-              <img class="w-75 mb-2" height="150px" src="{% static 'images/online-banking.jfif' %}" alt="">
+              <!-- <img class="w-75 mb-2" height="150px" src="{% static 'images/online-banking.jfif' %}" alt=""> -->
             </div>
           </div>
         </div>
@@ -94,14 +100,13 @@
           <table class="table table-responsive-sm  table-sm ">
             <thead>
               <tr class="text-white " style="background-color: rgba(112, 102, 91, 0.979);">
-                <th class="">Sender</th>
+                <th class="">Date</th>
                 <th class="">Amount</th>
                 <th class="">Purpose</th>
                 <th class="">Type</th>
                 <th class="">Full Name</th>
                 <th class="">Bankname</th>
                 <th class="">Account Number</th>
-                <th class="">Date</th>
                 <th class="">Reference Number</th>
               </tr>
             </thead>
@@ -109,14 +114,13 @@
             <tbody class="text-info">
               {% for history in histories %}
               <tr>
-                <td class="table-secondary">{{history.sender_name}}</td>
-                <td class="table-secondary">{{history.amount }}</td>
+                <td class="table-secondary">{{history.date }}</td>
+                <td class="table-secondary">${{history.amount }}</td>
                 <td class="table-secondary">{{history.description}}</td>
                 <td class="table-secondary">{{history.transaction_type}}</td>
                 <td class="table-secondary">{{history.receiver_name}}</td>
                 <td class="table-secondary">{{history.receiver_bank}}</td>
                 <td class="table-secondary"><a href="">{{history.account_number}}</a></td>
-                <td class="table-secondary">{{history.date }}</td>
                 <td class="table-secondary">{{history.transaction_reference }}</td>
               </tr>
               {% endfor %}
@@ -138,13 +142,13 @@
             <img width="80px" class="d-block d-md-none" src="{% static 'images/verisign-secured-logo.png' %}" alt="">
           </div>
           <div class="col-3 col-md-12">
-            <img class="transaction-images w-100" src="{% static 'images/mobile-banking-img.jfif' %}" alt="">
+            <!-- <img class="transaction-images w-100" src="{% static 'images/mobile-banking-img.jfif' %}" alt=""> -->
           </div>
           <div class="col-3 col-md-12">
-            <img class="transaction-images w-100" src="{% static 'images//mobile-banking-security-img.jpg' %}" alt="">
+            <!-- <img class="transaction-images w-100" src="{% static 'images//mobile-banking-security-img.jpg' %}" alt=""> -->
           </div>
           <div class="col-3 col-md-12">
-            <img class="transaction-images w-100" src="{% static 'images/secure-banking-promise.png' %}" alt="">
+            <!-- <img class="transaction-images w-100" src="{% static 'images/secure-banking-promise.png' %}" alt=""> -->
           </div>
         </div>
       </div>
