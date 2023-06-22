@@ -105,27 +105,20 @@
 
           <h6 class="my-4"><p></p></h6>
           <div class="row text-white py-1" style="background-color: rgba(112, 102, 91, 0.979);">
-            <h6 class="col-3">Name On Account</h6>
+            <h6 class="col-6">Name On Account</h6>
             <!-- <h6 class="col-3">Account Setup Date</h6> -->
-            <h6 class="col-3">Account Number</h6>
+            <h6 class="col-6">Account Number</h6>
             <!-- <h6 class="col-3">Account Officer</h6> -->
           </div>
 
           <div class="row">
-            <div class="col-3">
+            <div class="col-6">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
               <span>{% for update in updates %}{{update.user.first_name}} {{update.user.surname}}{% endfor %}</span>
             </div>
-            <div class="col-3">
+            <div class="col-6">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
               {% for update in updates %}{{update.user.account_number}}{% endfor %}
-            </div>
-            <div class="col-3">
-              <!-- <i class="fa fa-caret-right" aria-hidden="true"></i> -->
-              <!-- {% for update in updates %}{{update.user.account_number}}{% endfor %} -->
-            </div>
-            <div class="col-3">
-
             </div>
           </div>
 

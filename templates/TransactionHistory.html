@@ -129,15 +129,8 @@
 
       <div class="col-12 col-md-2">
         <div class="d-flex  justify-content-center mx-md-0 d-md-block">
-          <div class="col-2 col-md-12">
-            {% for update in updates %}
-                {% if update.passport %}
-              <img class="transaction-images w-25 mb-2 d-block d-md-none float-end" src="{{ update.passport.url }}" alt="">
-              {% endif %}
-              {% endfor %}
-            <img width="80px" class="d-block d-md-none" src="{% static 'images/verisign-secured-logo.png' %}" alt="">
-          </div>
           <div class="col-3 col-md-12">
+            <img width="80px" class="d-block d-md-none" src="{% static 'images/verisign-secured-logo.png' %}" alt="">
             <!-- <img class="transaction-images w-100" src="{% static 'images/mobile-banking-img.jfif' %}" alt=""> -->
           </div>
           <div class="col-3 col-md-12">
