@@ -24,11 +24,6 @@
             <a href="{% url 'stock:plans' %}"><img src="{% static 'img/subscribe.png' %}" alt=""> Plans</a>
             <a href="{% url 'stock:transactions' %}"><img src="{% static 'img/transaction.png' %}" alt=""> Transactions</a>
             <a href="{% url 'stock:withdraw' %}"><img src="{% static 'img/withdrawal.png' %}" alt=""> Withdraw</a>
-            {% for update in updates %}
-            <a href="{% url 'stock:dashboard' %}"><img src="{% static 'img/kyc.png' %}" alt=""> KYC Updated</a>
-            {% empty %}
-            <a href="{% url 'stock:kyc' %}"><img src="{% static 'img/kyc.png' %}" alt=""> KYC Verification</a>
-            {% endfor %}  
             <a href="{% url 'stock:logout' %}" style="background-color: #fd2626;"><img src="{% static 'img/logout.png' %}" alt="" > Logout</a>
         </div>
     </div>

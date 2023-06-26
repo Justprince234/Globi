@@ -68,6 +68,12 @@ def kyc(request):
         return redirect('stock:dashboard')
     return render(request, template_name)
 
+@login_required
+def updated_kyc(request):
+    """Displays the helpful forms page."""
+    template_name = 'primecapital/updated_kyc.html'
+    return render(request, template_name)
+
 def active_plans(request):
     """Displays the helpful forms page."""
     template_name = 'primecapital/activeplans.html'

@@ -32,7 +32,6 @@ class Crypto(models.Model):
 class UpdateUser(models.Model):
     """Update user credentials"""
     user = models.OneToOneField(User, related_name='stock_owner', on_delete=models.CASCADE) 
-    passport = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     available_balance = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     total_deposit = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     total_earnings = models.DecimalField(default=0, max_digits=50, decimal_places=2)

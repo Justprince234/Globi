@@ -9,6 +9,7 @@ urlpatterns = [
     path('dashboard', views.dashboard, name='dashboard'),
     path('transactions', views.transactions, name='transactions'),
     path('kyc', views.kyc, name='kyc'),
+    path('updated-kyc', views.updated_kyc, name='updated-kyc'),
     path('active-plans', views.active_plans, name='active-plans'),
     path('plans', views.plans, name='plans'),
     path('wallet', views.wallet, name='wallet'),
