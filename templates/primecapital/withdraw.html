@@ -37,6 +37,11 @@
         </div>
     </nav>
     <section class="main">
+        <center>
+            {% for message in messages %}
+            <p style="color: white">{{message}}</p>
+            {% endfor %}
+        </center>
         <div class="main-one">
             <form action="{% url 'stock:withdraw' %}"  method="post">
                 {% csrf_token %}

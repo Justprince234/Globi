@@ -8,6 +8,7 @@ from decimal import Decimal
 
 # Local imports
 from .models import History, UpdateUser, Plan, Withdraw, Crypto
+from account.models import User
 
 # Create your views here.
 
@@ -35,7 +36,7 @@ def dashboard(request):
     """Displays the helpful forms page."""
     template_name = 'primecapital/dashboard.html'
     user = request.user
-    updates = UpdateUser.objects.filter(user=user)
+    updates = UpdateUser.objects.get_or_create(user=user)
     histories = History.objects.filter(user=user).order_by('-date')
     context = {'updates': updates, 'histories': histories} 
     return render(request, template_name, context)
@@ -97,13 +98,17 @@ def withdraw(request):
     if request.method == 'POST':
         amount = request.POST['amount']
         wallet_address = request.POST['wallet_address']
-        available_balance -=Decimal(amount)
-        total_withdrawal +=Decimal(amount)
+        new_amount = Decimal(amount)
+        if new_amount > available_balance:
+            messages.info(request, "Insufficient Wallet Balance! Please fund your Wallet.")
+            return redirect('stock:withdraw')
+        available_balance -=new_amount
+        total_withdrawal +=new_amount
         update_user.update(available_balance=available_balance, total_withdrawal=total_withdrawal)
         withdraw = Withdraw(amount=amount, wallet_address=wallet_address)
         withdraw.user = user
         withdraw.save()
-        messages.info(request, 'Pending Awaiting Approval')
+        messages.info(request, 'Pending... Awaiting Approval')
         return redirect('stock:dashboard')
     return render(request, template_name)
 

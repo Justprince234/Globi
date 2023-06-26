@@ -100,6 +100,13 @@ DATABASES = {
 }
 
 # DATABASES = {
+#   'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+
+# DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'URL': 'DATABASE_URL',
@@ -121,13 +128,6 @@ DATABASES = {
 #         'HOST': os.getenv('PGHOST'),
 #         'PORT': os.getenv('PGPORT),
 #     }
-# }
-
-# DATABASES = {
-#   'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
 # }
 
 

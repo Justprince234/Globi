@@ -42,6 +42,11 @@
     </nav>
     <section class="main">
         <div class="main-one">
+            <center>
+                {% for message in messages %}
+                <p style="color: yellow">{{message}}</p>
+                {% endfor %}
+            </center>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
                     <h6>WALLET BALANCE</h6>
@@ -52,7 +57,7 @@
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>{% for update in updates %} ${{update.available_balance}}{% endfor %}</h6>
+                    <h6>${% for update in updates %}{{update.new_available_balance}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -62,8 +67,8 @@
             <hr>
             <div class="main-one-interior-bottom">
                 <div class="main-one-interior-down">
-                    <h6>Username <img src="{% static 'img/user.png' %}" alt=""></h6>
-                    <p>{% for update in updates %}{{update.user.username}}{% endfor %}</p>
+                    <h6>Fullname <img src="{% static 'img/user.png' %}" alt=""></h6>
+                    <p>{% for update in updates %}{{update.user.first_name}} {{update.user.surname}}{% endfor %}</p>
                     <hr>
                 </div>
                 <div class="main-one-interior-down">
@@ -84,7 +89,7 @@
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>{% for update in updates %} ${{update.total_deposit}}{% endfor %}</h6>
+                    <h6>${% for update in updates %}{{update.new_total_deposit}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -103,7 +108,7 @@
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>{% for update in updates %} ${{update.total_earnings}}{% endfor %}</h6>
+                    <h6>${% for update in updates %}{{update.new_total_earnings}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -136,12 +141,12 @@
                     <h6>TOTAL WITHDRAWN</h6>
                 </div>
                 <div class="main-one-interior-pc">
-                    <h6>{% for update in updates %} ${{update.total_withdrawal}}{% endfor %}</h6>
+                    <h6>${% for update in updates %}{{update.new_total_withdrawal}}{% endfor %}</h6>
                 </div>
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>{% for update in updates %} ${{update.total_withdrawal}}{% endfor %}</h6>
+                    <h6>${% for update in updates %}{{update.new_total_withdrawal}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>

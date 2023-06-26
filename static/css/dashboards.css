@@ -10,7 +10,8 @@ nav{
     grid-template-columns: 1fr 1fr;
 }
 .right-nav img{
-    width: 15rem;
+    width: 12rem;
+    height: 10rem;
 }
 .left-nav{
     text-align: right;

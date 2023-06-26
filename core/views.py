@@ -43,7 +43,6 @@ def registration(request):
             messages.info(request, 'email already exist.')
             return redirect('core:registration')
         user = User.objects.create_user(first_name=first_name, middle_name=middle_name, surname=surname, date_of_birth=date_of_birth, email=email, phone=phone, address=address, gender=gender, security_question=security_question, security_answer=security_answer, password=password)
-        user.is_active = True
         user.save()
         return redirect('stock:login')
     return render(request, template_name)

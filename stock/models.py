@@ -45,6 +45,26 @@ class UpdateUser(models.Model):
     def __str__(self):
         return "{}".format(self.user)
     
+    def new_available_balance(self):
+        balance = self.available_balance
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
+    
+    def new_total_withdrawal(self):
+        balance = self.total_withdrawal
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
+    
+    def new_total_deposit(self):
+        balance = self.total_deposit
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
+    
+    def new_total_earnings(self):
+        balance = self.total_earnings
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
+    
 TRANSACTION_TYPE = (
     ('Debit', 'Debit'), 
     ('Credit', 'Credit') 
@@ -54,12 +74,17 @@ class History(models.Model):
     user =  models.ForeignKey(User, related_name='stock_history', on_delete=models.CASCADE) 
     wallet_address = models.CharField(max_length=100)
     transaction_type = models.CharField(choices=TRANSACTION_TYPE, default="stock_debits", max_length=10)
-    amount = models.IntegerField()
+    amount = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     transaction_reference = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
     date = models.DateField()
 
     class Meta:
         verbose_name_plural = "Histories"
+    
+    def new_amount(self):
+        balance = self.amount
+        real_balance = "{:,.2f}".format(balance)
+        return real_balance
 
 class Withdraw(models.Model):
     user =  models.ForeignKey(User, related_name='withdraw', on_delete=models.CASCADE)
