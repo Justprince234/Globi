@@ -87,7 +87,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     status = models.CharField(choices=STATUS, default="Active", max_length=20)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     is_admin = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     objects = UserManager()

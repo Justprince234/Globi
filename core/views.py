@@ -43,21 +43,8 @@ def registration(request):
             messages.info(request, 'email already exist.')
             return redirect('core:registration')
         user = User.objects.create_user(first_name=first_name, middle_name=middle_name, surname=surname, date_of_birth=date_of_birth, email=email, phone=phone, address=address, gender=gender, security_question=security_question, security_answer=security_answer, password=password)
-        user.is_active = False  
+        user.is_active = True
         user.save()
-        current_site = get_current_site(request)
-        message = render_to_string('get-otp.html', {
-            'user': user,
-            'domain':current_site.domain,
-            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            'token': account_activation_token.make_token(user),
-        })
-        mail_subject = 'Globi Capital E-mail verification'
-        recipient_list = user.email
-        from_email = 'info@globicapital.com'
-        send_mail(mail_subject, str(message), from_email, [str(recipient_list)], fail_silently=False)
-        messages.success(request, f'Dear {user.first_name}, please check your email "{user.email}" inbox and click on \
-            received activation link to confirm and complete the registration. Note: Check your spam folder.')  
         return redirect('core:login')
     return render(request, template_name)
 
