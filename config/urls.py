@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
-    path('globi_capital_investment/', include('stock.urls', namespace='stock')),
+    path('globi_capital_investments/', include('stock.urls', namespace='stock')),
 ]
 
 if settings.DEBUG: 

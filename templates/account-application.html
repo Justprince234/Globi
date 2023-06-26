@@ -74,7 +74,7 @@
             <div class="row-fluid">
                 <div class="span4">
                     <div id="logo">
-                        <a href="/"><img src="{% static 'images/logo.png' %}"></a>
+                        <a href="{% url 'stock:login' %}"><img src="{% static 'img/logo.png' %}"></a>
                     </div>
                 </div>
                 <div class="span4">
@@ -99,7 +99,7 @@
         <h1>ACCOUNT REGISTRATION</h1>
         <form action="{% url 'core:registration' %}" id="app-form" method="POST">
             {% csrf_token %}
-            <p>Welcome to Global Capital Markets client registration portal. This online form will guide you through
+            <p>Welcome to Global Capital Investments client registration portal. This online form will guide you through
                 the account opening process, please complete all required sections and use the save button should you
                 need to stop and complete the form
                 at a later time. If you need any assistance please contact our banking team on E-mail: info@globicapital.com
