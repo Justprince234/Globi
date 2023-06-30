@@ -5,7 +5,7 @@ from .models import History, UpdateUser, Plan, Withdraw, Crypto
 
 class HistoryAdmin(admin.ModelAdmin):
     
-    list_display = ('id','user', 'wallet_address')
+    list_display = ('id','user')
     list_display_links = ('id', 'user')
     search_fields = ('user',)
     list_per_page = 25

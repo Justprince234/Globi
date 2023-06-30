@@ -69,12 +69,23 @@ TRANSACTION_TYPE = (
     ('Credit', 'Credit') 
 )
 
+PLAN_TYPE = (
+    ('Regular', 'Regular'), 
+    ('Standard', 'Standard'),
+    ('Premium', 'Premium') 
+)
+
+STATUS_TYPE = (
+    ('Pending', 'Pending'), 
+    ('Approved', 'Approved')
+)
+
 class History(models.Model):
     user =  models.ForeignKey(User, related_name='stock_history', on_delete=models.CASCADE) 
-    wallet_address = models.CharField(max_length=100)
+    plan = models.CharField(choices=PLAN_TYPE, default="Regular", max_length=10)
     transaction_type = models.CharField(choices=TRANSACTION_TYPE, default="stock_debits", max_length=10)
     amount = models.DecimalField(default=0, max_digits=50, decimal_places=2)
-    transaction_reference = models.UUIDField(unique=True, editable=False, default=uuid.uuid4)
+    status = models.CharField(choices=STATUS_TYPE, default="Pending", max_length=10)
     date = models.DateField()
 
     class Meta:

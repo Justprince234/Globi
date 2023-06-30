@@ -38,14 +38,15 @@
     <section class="main">
         <div class="active">
             <h3 style="color: aliceblue;">RECENT TRANSACTIONS</h3>
-            <table class="table table-responsive-sm  table-sm ">
+            <br>
+            <table class="table table-responsive-sm  table-sm " style="background-color: rgb(14,20,40);">
                 <thead>
                   <tr class="text-white " style="background-color: rgba(112, 102, 91, 0.979);">
                     <th class="">Date</th>
-                    <th class="">Wallet Address</th>
                     <th class="">Amount</th>
+                    <th class="">Plan</th>
                     <th class="">Type</th>
-                    <th class="">Reference Number</th>
+                    <th class="">Status</th>
                   </tr>
                 </thead>
               
@@ -53,10 +54,10 @@
                   {% for history in histories %}
                   <tr>
                     <td class="table-secondary">{{history.date}}</td>
-                    <td class="table-secondary">{{history.wallet_address }}</td>
-                    <td class="table-secondary">{{history.amount}}</td>
+                    <td class="table-secondary">{{history.new_amount}}</td>
+                    <td class="table-secondary">{{history.plan}}</td>
                     <td class="table-secondary">{{history.transaction_type}}</td>
-                    <td class="table-secondary">{{history.transaction_reference}}</td>
+                    <td class="table-secondary">{{history.status}}</td>
                   </tr>
                   {% endfor %}
     
