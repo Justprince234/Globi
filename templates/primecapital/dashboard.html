@@ -52,7 +52,7 @@
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>${% for update in updates %}{{update.new_available_balance}}{% endfor %}</h6>
+                    <h6>{% for update in updates %}{{update.currency}}{% endfor %}{% for update in updates %}{{update.new_available_balance}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -84,7 +84,7 @@
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>${% for update in updates %}{{update.new_total_deposit}}{% endfor %}</h6>
+                    <h6>{% for update in updates %}{{update.currency}}{% endfor %}{% for update in updates %}{{update.new_total_deposit}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -103,7 +103,7 @@
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>${% for update in updates %}{{update.new_total_earnings}}{% endfor %}</h6>
+                    <h6>{% for update in updates %}{{update.currency}}{% endfor %}{% for update in updates %}{{update.new_total_earnings}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -117,12 +117,12 @@
                     <h6>REFERRAL EARNINGS</h6>
                 </div>
                 <div class="main-one-interior-pc">
-                    <h6>$0</h6>
+                    <h6>{% for update in updates %}{{update.currency}}{% endfor %}0</h6>
                 </div>
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>$0</h6>
+                    <h6>{% for update in updates %}{{update.currency}}{% endfor %}0</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>
@@ -136,12 +136,12 @@
                     <h6>TOTAL WITHDRAWN</h6>
                 </div>
                 <div class="main-one-interior-pc">
-                    <h6>${% for update in updates %}{{update.new_total_withdrawal}}{% endfor %}</h6>
+                    <h6>{% for update in updates %}{{update.currency}}{% endfor %}{% for update in updates %}{{update.new_total_withdrawal}}{% endfor %}</h6>
                 </div>
             </div>
             <div class="main-one-interior">
                 <div class="main-one-interior-wallet">
-                    <h6>${% for update in updates %}{{update.new_total_withdrawal}}{% endfor %}</h6>
+                    <h6>{% for update in updates %}{{update.new_total_withdrawal}}{% endfor %}</h6>
                 </div>
                 <div class="main-one-interior-dot">
                     <span class="dot1"></span>

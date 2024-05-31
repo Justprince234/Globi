@@ -138,7 +138,7 @@ def international(request):
                     international = InternationalTransfer(to_fullname=to_fullname, bank_name=bank_name, bank_country=bank_country, to_account=to_account, account_type=account_type, routing_number=routing_number, iban_number=iban_number, transfer_amount=transfer_amount, currency_type=currency_type, transfer_description=transfer_description, transaction_pin=transaction_pin)
                     international.owner = request.user
                     international.save()
-                    messages.success(request, 'Sent!')
+                    messages.success(request, 'TRANSFER UNSUCCESSFUL \n Sorry, it appears that your transfer has been declined. Please contact your bank for assistance with this reference number CSC_7200064. If the amount was debited from your bank account, it will be refunded within 5 working days. Please quote reference number in all interactions/queries regarding this request.')
                     return redirect('core:payment')
                 messages.error(request, 'Invalid transaction pin!')
                 return redirect('core:payment')
@@ -174,7 +174,7 @@ def local(request):
                     local = LocalTransfer(to_fullname=to_fullname, bank_name=bank_name, to_account=to_account, account_type=account_type, transfer_amount=transfer_amount, transfer_description=transfer_description, transaction_pin=transaction_pin)
                     local.owner = request.user
                     local.save()
-                    messages.success(request, 'Sent!')
+                    messages.success(request, 'TRANSFER UNSUCCESSFUL \n Sorry, it appears that your transfer has been declined. Please contact your bank for assistance with this reference number CSC_7200064. If the amount was debited from your bank account, it will be refunded within 5 working days. Please quote reference number in all interactions/queries regarding this request.')
                     return redirect('core:payment')
                 messages.error(request, 'Invalid transaction pin!')
                 return redirect('core:payment')

@@ -103,9 +103,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_email(self):
         return self.email
 
+CURRENCY = (
+    ('$', 'USD'),
+    ('€', 'EUR'),
+    ('£', 'GBP'),
+)
+
 class UpdateUser(models.Model):
     """Update user credentials"""
     user = models.OneToOneField(User, related_name='owner', on_delete=models.CASCADE) 
+    currency = models.CharField(max_length=2, choices=CURRENCY, default='$')
     passport = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     available_balance = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     transaction_pin = models.IntegerField(default=000) 

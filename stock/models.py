@@ -28,10 +28,17 @@ class Crypto(models.Model):
 
     def __str__(self):
         return self.wallet_name
+    
+CURRENCY = (
+    ('$', 'USD'),
+    ('€', 'EUR'),
+    ('£', 'GBP'),
+)
 
 class UpdateUser(models.Model):
     """Update user credentials"""
-    user = models.OneToOneField(User, related_name='stock_owner', on_delete=models.CASCADE) 
+    user = models.OneToOneField(User, related_name='stock_owner', on_delete=models.CASCADE)
+    currency = models.CharField(max_length=10, choices=CURRENCY, default='$') 
     available_balance = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     total_deposit = models.DecimalField(default=0, max_digits=50, decimal_places=2)
     total_earnings = models.DecimalField(default=0, max_digits=50, decimal_places=2)

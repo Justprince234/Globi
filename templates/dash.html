@@ -135,11 +135,11 @@
             </div>
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              USD
+              {% for update in updates %}{{update.currency}}{% endfor %}
             </div>
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              ${% for update in updates %}{{update.new_balance}}{% endfor %}
+              {% for update in updates %}{{update.currency}}{% endfor %}{% for update in updates %}{{update.new_balance}}{% endfor %}
             </div>
             <div class="col-3">
 
@@ -153,7 +153,7 @@
           <div class="row">
             <div class="col-3">
               <i class="fa fa-caret-right" aria-hidden="true"></i>
-              <span>${% for update in updates %}{{update.new_balance}}{% endfor %}</span>
+              <span>{% for update in updates %}{{update.currency}}{% endfor %}{% for update in updates %}{{update.new_balance}}{% endfor %}</span>
             </div>
           </div>
 
