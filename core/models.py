@@ -28,6 +28,7 @@ class History(models.Model):
         balance = self.amount
         real_balance = "{:,.2f}".format(balance)
         return real_balance
+    
 
 class Contact(models.Model):
     full_name = models.CharField(max_length=100)
